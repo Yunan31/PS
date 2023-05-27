@@ -55,7 +55,6 @@ int solution(vector<int> arrayA, vector<int> arrayB) {
         }
         
         if(flag) answer = now;
-        
         now++;
     }
     
