@@ -1,3 +1,9 @@
+### 유의해야할 부분
+
+이분탐색이 조금 헷갈린다..
+https://www.acmicpc.net/blog/view/109
+위 글을 보고 복습하는 시간이 되었다
+
 # [Gold IV] 넴모넴모 2020 - 19845 
 
 [문제 링크](https://www.acmicpc.net/problem/19845) 
