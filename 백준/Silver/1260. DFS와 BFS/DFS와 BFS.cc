@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <stack>
 #include <queue>
 #include <algorithm>
 
@@ -9,30 +8,15 @@ using namespace std;
 int visit_dfs[1005] = {0}, visit_bfs[1005] = {0};
 vector<vector<int>> graph(1005);
 
-//그냥 재귀로하는게 낫다;
 void dfs(int V){
-  stack<int> stack;
-
-  stack.push(V);
-  cout << V << " ";
   visit_dfs[V] = 1;
+  cout << V << " ";
 
-  while(!stack.empty()){
-    int now = stack.top();
-    stack.pop();
-
-    for(int i=0;i<graph[now].size();i++){
-      if(visit_dfs[graph[now][i]] == 0){
-        cout << graph[now][i] << " ";
-        visit_dfs[graph[now][i]] = 1;
-        stack.push(now);
-        stack.push(graph[now][i]);
-        break;
-      }
+  for(int i=0;i<graph[V].size();i++){
+    if(visit_dfs[graph[V][i]] == 0){
+      dfs(graph[V][i]);
     }
   }
-
-  cout << "\n";
 }
 
 void bfs(int V){
@@ -73,6 +57,7 @@ int main() {
   }
 
   dfs(V);
+  cout << "\n";
   bfs(V);
   
 }
