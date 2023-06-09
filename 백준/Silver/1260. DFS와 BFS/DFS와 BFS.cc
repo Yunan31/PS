@@ -41,6 +41,7 @@ void bfs(int V){
 }
 
 int main() {
+  ios_base::sync_with_stdio(false);
   int N, M, V;
 
   cin >> N >> M >> V;
