@@ -19,6 +19,10 @@ int check(int M, int N, int H){
 }
 
 int main() {
+  ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+  
   int M, N, H;
   queue<tuple<int, int, int>> Q;
 
