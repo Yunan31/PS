@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int snake[101] = {0};
-int ladder[101] = {0};
+int factor[101] = {0};
 int map[101];
 
 void roll_dice(){
@@ -11,9 +10,8 @@ void roll_dice(){
     for(int dice=1;dice<=6;dice++){
       if(i+dice > 100) break;
       int next = i + dice;
-      if(ladder[next]) next = ladder[next];
-      if(snake[next]) next = snake[next];
-
+      if(factor[next]) next = factor[next];
+      
       map[next] = min(map[next], map[i] + 1);
     }
   }
@@ -25,14 +23,9 @@ int main() {
 
   cin >> N >> M;
 
-  for(int i=0;i<N;i++){
+  for(int i=0;i<N+M;i++){
     cin >> start >> end;
-    ladder[start] = end;
-  }
-
-  for(int i=0;i<M;i++){
-    cin >> start >> end;
-    snake[start] = end;
+    factor[start] = end;
   }
 
   fill_n(map, 101, 999999);
