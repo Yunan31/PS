@@ -15,8 +15,7 @@ int main() {
     cin >> room_type;
     if(room_type == 1){
       cin >> mon_atk >> mon_HP;
-      minus_HP += mon_atk*(mon_HP/atk);
-      if(mon_HP%atk == 0) minus_HP -= mon_atk;
+      minus_HP += mon_atk*((mon_HP-1)/atk);
     }
     else{
       death_HP = max(death_HP, minus_HP);
