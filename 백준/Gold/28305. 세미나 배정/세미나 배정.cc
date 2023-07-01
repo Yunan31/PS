@@ -6,6 +6,7 @@
 using namespace std;
 
 int main() {
+  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
   int N, T;
   vector<int> arr;
   int input[200002];
@@ -17,7 +18,7 @@ int main() {
   }
   sort(input, input+N);
 
-  int low = 1, high = 400000;
+  int low = 1, high = 200000;
   int mid;
   while(low <= high){
     mid = (low+high)/2;
