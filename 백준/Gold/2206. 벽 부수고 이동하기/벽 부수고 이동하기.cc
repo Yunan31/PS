@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#define FASTIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define INF 9999999
 
 using namespace std;
@@ -49,6 +50,7 @@ int wall_dist(int x, int y){
 }
 
 int main() {
+  FASTIO
   cin >> N >> M;
   for(int i=0;i<N;i++){
     string str;
