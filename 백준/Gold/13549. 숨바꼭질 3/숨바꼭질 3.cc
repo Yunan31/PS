@@ -3,13 +3,13 @@
 
 using namespace std;
 
-int visit[200005];
+int visit[100005];
 
 int main() {
   int N, K;
   queue<int> Q;
   cin >> N >> K;
-  fill_n(visit, 200005, -1);
+  fill_n(visit, 100005, -1);
   Q.push(N);
   visit[N] = 0;
   while(!Q.empty()){
