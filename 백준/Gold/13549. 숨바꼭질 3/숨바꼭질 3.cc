@@ -21,15 +21,16 @@ int main() {
       return 0;
     }
 
-    if(now*2 <= 200000 && visit[now*2] == -1){
+    if(now*2 <= 100000 && visit[now*2] == -1){
       visit[now*2] = visit[now];
       Q.push(now*2);
     }
+    //알고리즘 우선순위가 중요함
     if(now-1 >= 0 && visit[now-1] == -1){
       visit[now-1] = visit[now]+1;
       Q.push(now-1);
     }
-    if(now+1 <= 200000 && visit[now+1] == -1){
+    if(now+1 <= 100000 && visit[now+1] == -1){
       visit[now+1] = visit[now]+1;
       Q.push(now+1);
     }
