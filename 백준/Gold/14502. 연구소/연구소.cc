@@ -56,11 +56,9 @@ int make_wall(int K, pair<int, int> start) {
   }
   int answer = 0, flag = 0;
   for (int i = start.first; i < N; i++) {
-    int j = 0;
-    if (i == start.first){ 
-        j = start.second;
-    }
-    for (; j < M; j++) {
+    for (int j = 0; j < M; j++) {
+      if(!flag){ j = start.second; flag++; }
+      if(j>=M) continue;
       if (map[i][j] == 0) {
         map[i][j] = 1;
         answer = max(answer, make_wall(K - 1, {i, j + 1}));
