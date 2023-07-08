@@ -8,6 +8,7 @@ int DP_max[2][3] = {0};
 int DP_min[2][3];
 
 int main() {
+  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
   int N;
   int ans_max = 0, ans_min = 999999;
   vector<vector<int>> next = {
