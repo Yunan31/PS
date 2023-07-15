@@ -10,6 +10,7 @@ int N;
 int answer = 0;
 
 void DFS(int num){
+  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
   if(tree[num].empty()) return;
 
   for(int i=0;i<tree[num].size();i++){
