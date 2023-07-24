@@ -7,7 +7,7 @@ int main() {
 
   cin >> N >> K;
 
-  int low = -1, high = 1000000000;
+  int low = 0, high = 1000000000;
 
   while(low <= high){
     int mid = (low+high)/2;
