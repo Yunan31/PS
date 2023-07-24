@@ -6,6 +6,7 @@ int pre[1000001];
 int count[1001] = {0};
 
 int main() {
+  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
   int N, M, A;
   cin >> N >> M;
 
@@ -21,11 +22,6 @@ int main() {
     if(count[i] > 1)
       answer += ((long long)count[i] * (count[i]-1)) / 2;
   }
-
-  // for(int i=1;i<=N;i++){
-  //   cout << pre[i] << " ";
-  // }
-  // cout << endl;
 
   cout << answer;
   
