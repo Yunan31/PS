@@ -107,9 +107,8 @@ int main() {
           tmp_red = move(red, i);
           map[tmp_blue.first][tmp_blue.second] = '.';
         }
-        else tmp_red = move(red, i);
-
-        if(is_hall(tmp_blue)) continue;
+        else continue;
+        
         if(is_hall(tmp_red) && !is_hall(tmp_blue)){
           answer = 1; break;
         }
