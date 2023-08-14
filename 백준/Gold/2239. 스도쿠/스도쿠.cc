@@ -1,98 +1,50 @@
-#include<iostream>
-#include<string>
- 
-#define endl "\n"
-#define MAX 9
+#include <iostream>
+
 using namespace std;
- 
-int MAP[MAX][MAX];
-bool Row[MAX][MAX];
-bool Col[MAX][MAX];
-bool Square[MAX][MAX];
- 
-void Print()
-{
-    for (int i = 0; i < MAX; i++)
-    {
-        for (int j = 0; j < MAX; j++)
-        {
-            cout << MAP[i][j];
-        }
-        cout << endl;
+
+int r[10][10] = {0}, c[10][10] = {0}, box[10][10] = {0};
+int map[9][9];
+
+void dfs(int count){
+  if(count == 81){
+    for(int i=0;i<9;i++){
+      for(int j=0;j<9;j++){
+        cout << map[i][j];
+      }
+      cout << "\n";
     }
-}
- 
-void Input()
-{
-    for (int i = 0; i < 9; i++)
-    {
-        string Inp;
-        cin >> Inp;
-        for (int j = 0; j < Inp.length(); j++)
-        {
-            MAP[i][j] = Inp[j] - '0';
-            if (MAP[i][j] != 0)
-            {
-                Row[i][MAP[i][j]] = true;
-                Col[j][MAP[i][j]] = true;
-                Square[(i / 3) * 3 + (j / 3)][MAP[i][j]] = true;
-            }
-        }
+    exit(0);
+  }
+  int x = count/9, y = count%9;
+
+  if(map[x][y]){
+    dfs(count+1);
+  }
+  else{
+    for(int i=1;i<=9;i++){
+      if(!r[i][x] && !c[i][y] && !box[i][(x/3)*3+(y/3)]){
+        r[i][x] = 1; c[i][y] = 1; box[i][(x/3)*3+(y/3)] = 1;
+        map[x][y] = i;
+        dfs(count+1);
+        map[x][y] = 0;
+        r[i][x] = 0; c[i][y] = 0; box[i][(x/3)*3+(y/3)] = 0;
+      }
     }
-    //Print();
+  }
 }
- 
-void DFS(int Cnt)
-{
-    int x = Cnt / MAX;
-    int y = Cnt % MAX;
- 
-    if (Cnt == 81)
-    {
-        Print();
-        exit(0);
+
+int main() {
+  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+  for(int i=0;i<9;i++){
+    string str;
+    cin >> str;
+    for(int j=0;j<9;j++){
+      map[i][j] = str[j] - '0';
+      if(map[i][j]){
+        r[map[i][j]][i] = 1; c[map[i][j]][j] = 1; box[map[i][j]][(i/3)*3+(j/3)] = 1;
+      }
     }
- 
-    if (MAP[x][y] == 0)
-    {
-        for (int i = 1; i <= 9; i++)
-        {
-            if (Row[x][i] == false && Col[y][i] == false && Square[(x / 3) * 3 + (y / 3)][i] == false)
-            {
-                Row[x][i] = true;
-                Col[y][i] = true;
-                Square[(x / 3) * 3 + (y / 3)][i] = true;
-                MAP[x][y] = i;
-                DFS(Cnt + 1);
-                MAP[x][y] = 0;
-                Row[x][i] = false;
-                Col[y][i] = false;
-                Square[(x / 3) * 3 + (y / 3)][i] = false;
-            }
-        }
-    }
-    else DFS(Cnt + 1);
-}
- 
-void Solution()
-{
-    DFS(0);
-}
- 
-void Solve()
-{
-    Input();
-    Solution();
-}
- 
-int main(void)
-{
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
- 
-    //freopen("Input.txt", "r", stdin);
-    Solve();
- 
-    return 0;
+  }
+
+  dfs(0);
 }
