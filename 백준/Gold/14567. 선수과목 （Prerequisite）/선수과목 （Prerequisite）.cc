@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
+  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
   int N, M;
   vector<int> E[1005];
   int in_degree[1005] = {0};
