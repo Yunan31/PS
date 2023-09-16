@@ -29,17 +29,9 @@ int main() {
   }
 
   for(int i=1;i<=N;i++){
-    for(int j=1;j<=N;j++){
-      if(comp[i][j]){
-        comp[j][i] = 1;
-      }
-    }
-  }
-
-  for(int i=1;i<=N;i++){
     int answer = N;
     for(int j=1;j<=N;j++){
-      if(comp[i][j]){
+      if(comp[i][j] || comp[j][i]){
         answer--;
       }
     }
