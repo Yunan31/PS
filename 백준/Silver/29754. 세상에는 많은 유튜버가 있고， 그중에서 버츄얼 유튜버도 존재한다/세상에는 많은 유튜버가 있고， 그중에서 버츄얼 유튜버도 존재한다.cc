@@ -12,6 +12,7 @@ vector<string> names;
 int real[105] = {0};
 
 int main() {
+  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
   cin >> N >> M;
 
   for(int i=0;i<N;i++){
@@ -37,10 +38,6 @@ int main() {
 
   sort(stream.begin(), stream.end());
 
-  // for(int i=0;i<stream.size();i++){
-  //   cout << get<0>(stream[i]) << " " << get<1>(stream[i]) << " " << get<2>(stream[i]) << endl;
-  // }
-
   int now = 0;
   for(int i=0;i<M/7;i++){
     int stream_time[101] = {0};
@@ -53,7 +50,6 @@ int main() {
     }
 
     for(int k=0;k<names.size();k++){
-      //cout << names[k] << " " << stream_time[k] << endl;
       if(stream_time[k] >= 60*60 && stream_day[k] >= 5){
         real[k]++;
       }
