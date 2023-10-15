@@ -38,11 +38,6 @@ int main() {
   //   cout << endl;
   // }
 
-  int answer = 0;
-  for(int i=0;i<=100;i++){
-    answer = max(answer, DP[N][i]);
-  }
-
-  cout << answer;
+  cout << DP[N][100];
   
 }
