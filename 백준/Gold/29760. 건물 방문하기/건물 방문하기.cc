@@ -11,6 +11,7 @@ vector<int> floor[1005];
 int DP[1005][105];
 
 int main() {
+  ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
   cin >> N >> H >> W;
   for(int i=0;i<N;i++){
     int h, w;
